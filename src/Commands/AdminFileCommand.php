@@ -20,7 +20,10 @@ class AdminFileCommand extends Command
      */
     protected $signature = 'admin:file
     	{name : The name of the class}
-    	{--N|namespace= : The namespace class. Output strategy will follow this namespace}';
+        {--namespace= : The namespace class. Output strategy will follow this namespace}
+        {--N|config-namespace= : choose Default Namespace}
+        {--r|request= :  Store, Update, All (s,u,*)}
+        ';
 
     /**
      * The console command description.
@@ -46,8 +49,21 @@ class AdminFileCommand extends Command
      */
     public function handle()
     {
-        $this->call('admin:model', ['name' => $this->argument('name'), '--namespace' => $this->option('namespace')]);
-        $this->call('admin:repository', ['name' => $this->argument('name')]);
-        $this->call('admin:request', ['name' => $this->argument('name'), '--request' => $this->option('namespace')]);
+        $defaultNamespace = config('admin-generator.namespace');
+        $namespace = $this->option('config-namespace');
+
+        $model = '';
+        $repository = '';
+        $request = '';
+
+        if(array_key_exists($namespace, $defaultNamespace)){
+            $model = $defaultNamespace[$namespace]['model'];
+            $repository = $defaultNamespace[$namespace]['repository'];
+            $request = $defaultNamespace[$namespace]['repository'];
+        }
+
+        $this->call('admin:model', ['name' => $model.$this->argument('name'), '--namespace' => $this->option('namespace')]);
+        $this->call('admin:repository', ['name' => $repository.$this->argument('name')]);
+        $this->call('admin:request', ['name' => $request.$this->argument('name'), '--request' => $this->option('request')]);
     }
 }

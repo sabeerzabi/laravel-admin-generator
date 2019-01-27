@@ -21,6 +21,11 @@ class AdminGeneratorServiceProvider extends ServiceProvider
         if ($this->app->runningInConsole()) {
             $this->registerGeneratorCommands();
         }
+
+        $this->publishes([
+            __DIR__.'/../config/admin-generator.php' => config_path('admin-generator.php')
+        ], 'config');
+
     }
 
     public function register()

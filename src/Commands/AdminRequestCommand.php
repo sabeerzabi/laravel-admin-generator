@@ -26,7 +26,7 @@ class AdminRequestCommand extends AdminGeneratorCommand
     protected $signature = 'admin:request
     	{name : The model class name.}
         {--d|disable-softdelete : Disable softdelete}
-        {--request= : Store, Update, All (s,u,*)}';
+        {--r|request= : Store, Update, All (s,u,*)}';
 
     /**
      * The console command description.
