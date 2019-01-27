@@ -23,6 +23,7 @@ class AdminFileCommand extends Command
         {--namespace= : The namespace class. Output strategy will follow this namespace}
         {--N|config-namespace= : choose Default Namespace}
         {--r|request= :  Store, Update, All (s,u,*)}
+        {--f|file= :  Model, Repository, Request, All (md,rp,rq,*)}
         ';
 
     /**
@@ -51,6 +52,21 @@ class AdminFileCommand extends Command
     {
         $defaultNamespace = config('admin-generator.namespace');
         $namespace = $this->option('config-namespace');
+        $files = ['md', 'rp', 'rq'];
+        $file = $this->option('file');
+
+        if(!empty($file)){
+            $inpFile= explode(',', $file);
+            if(!in_array('*', $inpFile)){
+                $fl = array();
+                foreach($inpFile as $inpFl){
+                    if(in_array($inpFl, $files)){
+                        $fl[] = $inpFl;
+                    }
+                }
+                $files = $fl;
+            }
+        }
 
         $model = '';
         $repository = '';
@@ -61,9 +77,13 @@ class AdminFileCommand extends Command
             $repository = $defaultNamespace[$namespace]['repository'];
             $request = $defaultNamespace[$namespace]['repository'];
         }
+        if(in_array('md', $files))
+            $this->call('admin:model', ['name' => $model.$this->argument('name'), '--namespace' => $this->option('namespace')]);
 
-        $this->call('admin:model', ['name' => $model.$this->argument('name'), '--namespace' => $this->option('namespace')]);
-        $this->call('admin:repository', ['name' => $repository.$this->argument('name')]);
-        $this->call('admin:request', ['name' => $request.$this->argument('name'), '--request' => $this->option('request')]);
+        if(in_array('rp', $files))
+            $this->call('admin:repository', ['name' => $repository.$this->argument('name')]);
+
+        if(in_array('rq', $files))
+            $this->call('admin:request', ['name' => $request.$this->argument('name'), '--request' => $this->option('request')]);
     }
 }

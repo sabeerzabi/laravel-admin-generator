@@ -5,6 +5,10 @@ namespace {{namespace}};
 use App\Models\{{model_path}};
 use App\Repositories\BaseRepository;
 
+/*
+* Class {{class}}
+* Contract {{contract}}
+*/
 class {{class}} extends BaseRepository implements {{contract}}
 {
 	/**

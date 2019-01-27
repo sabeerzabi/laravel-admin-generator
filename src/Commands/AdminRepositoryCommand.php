@@ -67,6 +67,9 @@ class AdminRepositoryCommand extends AdminGeneratorCommand
 
         $path = $this->getPath($name);
 
+        /* contract create */
+        $this->call('admin:contract', ['name' => $this->argument('name')]);
+
         if ($this->alreadyExists($this->getClassName())) {
             $this->error($this->type.' already exists!');
 
@@ -92,8 +95,6 @@ class AdminRepositoryCommand extends AdminGeneratorCommand
 
         $this->info($this->type.' created successfully.');
 
-        /* contract create */
-        $this->call('admin:contract', ['name' => $this->argument('name')]);
     }
 
     /**
