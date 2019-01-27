@@ -16,6 +16,5 @@
     "authors": [{
         "name" : "Sabeer C A",
         "email": "sabeerzabi@gmail.com"
-    }],
-    "minimum-stability": "dev"
+    }]
 }
