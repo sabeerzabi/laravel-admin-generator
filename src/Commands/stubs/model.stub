@@ -1,0 +1,15 @@
+<?php
+
+namespace {{namespace}};
+
+use Illuminate\Database\Eloquent\Model;
+use {{namespace}}\Traits\Scope\{{class}}Scope;
+use {{namespace}}\Traits\Method\{{class}}Method;
+use {{namespace}}\Traits\Attribute\{{class}}Attribute;
+use {{namespace}}\Traits\Relationship\{{class}}Relationship;
+
+class {{class}} extends Model
+{
+    use {{class}}Method, {{class}}Attribute, {{class}}Relationship, {{class}}Scope;
+    //
+}

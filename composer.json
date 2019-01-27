@@ -1,0 +1,21 @@
+{
+    "name"       : "sabeer/admin-generator",
+    "description": "To generate admin CRUD operations",
+    "type"       : "library",
+    "require"    : {
+        "illuminate/support": "^5.7",
+        "php"               : "^7.2",
+        "phpunit/phpunit"   : "^7.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Sabeer\\AdminGenerator\\": "src/"
+        }
+    },
+    "license": "MIT",
+    "authors": [{
+        "name" : "Sabeer C A",
+        "email": "sabeerzabi@gmail.com"
+    }],
+    "minimum-stability": "dev"
+}

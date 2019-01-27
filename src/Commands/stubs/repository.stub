@@ -1,0 +1,17 @@
+<?php
+
+namespace {{namespace}};
+
+use App\Models\{{model_path}};
+use App\Repositories\BaseRepository;
+
+class {{class}} extends BaseRepository implements {{contract}}
+{
+	/**
+     * @return string
+     */
+    public function model()
+    {
+        return {{model}}::class;
+    }
+}
