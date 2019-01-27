@@ -1,5 +1,5 @@
 {
-    "name"       : "sabeer/admin-generator",
+    "name"       : "sabeer/laravel-admin-generator",
     "description": "To generate admin CRUD operations",
     "type"       : "library",
     "require"    : {
