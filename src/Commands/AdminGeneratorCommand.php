@@ -7,7 +7,7 @@ use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
 use Symfony\Component\Console\Input\InputArgument;
 
-abstract class AppGeneratorCommand extends Command
+abstract class AdminGeneratorCommand extends Command
 {
     /**
      * The filesystem instance.

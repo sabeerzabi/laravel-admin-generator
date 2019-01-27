@@ -2,21 +2,21 @@
 
 namespace Sabeer\AdminGenerator\Commands;
 
-class AppRelationshipCommand extends AppGeneratorCommand
+class AdminAttributeCommand extends AdminGeneratorCommand
 {
     /**
      * The type of class being generated.
      *
      * @var string
      */
-    protected $type = 'Relationship';
+    protected $type = 'Attribute';
 
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'admin:relationship
+    protected $signature = 'admin:attribute
     	{name : The name of the class}
     	{--N|namespace= : The namespace class. Output strategy will follow this namespace}';
 
@@ -25,7 +25,7 @@ class AppRelationshipCommand extends AppGeneratorCommand
      *
      * @var string
      */
-    protected $description = 'Create a new relationship traits for model';
+    protected $description = 'Create a new attribute traits for model';
 
     /**
      * The methods available.
@@ -44,7 +44,7 @@ class AppRelationshipCommand extends AppGeneratorCommand
      */
     protected function getStub()
     {
-        return __DIR__.'/stubs/relationship.stub';
+        return __DIR__.'/stubs/attribute.stub';
     }
 
     /**
@@ -55,16 +55,6 @@ class AppRelationshipCommand extends AppGeneratorCommand
     public function handle()
     {
         parent::handle();
-    }
-
-    /**
-     * Get the desired class name from the input.
-     *
-     * @return string
-     */
-    protected function getNameInput()
-    {
-        return $this->argument('name');
     }
 
     /**

@@ -2,21 +2,21 @@
 
 namespace Sabeer\AdminGenerator\Commands;
 
-class AppAttributeCommand extends AppGeneratorCommand
+class AdminModelCommand extends AdminGeneratorCommand
 {
     /**
      * The type of class being generated.
      *
      * @var string
      */
-    protected $type = 'Attribute';
+    protected $type = 'Model';
 
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'admin:attribute
+    protected $signature = 'admin:model
     	{name : The name of the class}
     	{--N|namespace= : The namespace class. Output strategy will follow this namespace}';
 
@@ -25,7 +25,7 @@ class AppAttributeCommand extends AppGeneratorCommand
      *
      * @var string
      */
-    protected $description = 'Create a new attribute traits for model';
+    protected $description = 'Create a new Eloquent model class with attribute, relationship and scope traits';
 
     /**
      * The methods available.
@@ -44,7 +44,7 @@ class AppAttributeCommand extends AppGeneratorCommand
      */
     protected function getStub()
     {
-        return __DIR__.'/stubs/attribute.stub';
+        return __DIR__.'/stubs/model.stub';
     }
 
     /**
@@ -54,17 +54,12 @@ class AppAttributeCommand extends AppGeneratorCommand
      */
     public function handle()
     {
-        parent::handle();
-    }
-
-    /**
-     * Get the intended name for class.
-     *
-     * @return string
-     */
-    protected function getClassName()
-    {
-        return basename($this->getNameInput()) . $this->type;
+        if (parent::handle() !== false) {
+            $this->call('admin:attribute', ['name' => $this->argument('name'), '--namespace' => $this->option('namespace')]);
+            $this->call('admin:method', ['name' => $this->argument('name'), '--namespace' => $this->option('namespace')]);
+            $this->call('admin:relationship', ['name' => $this->argument('name'), '--namespace' => $this->option('namespace')]);
+            $this->call('admin:scope', ['name' => $this->argument('name'), '--namespace' => $this->option('namespace')]);
+        }
     }
 
     /**
@@ -76,7 +71,6 @@ class AppAttributeCommand extends AppGeneratorCommand
     protected function getDefaultNamespace($rootNamespace)
     {
         $namespace = $this->option('namespace') ?? dirname($this->argument('name'));
-        $slash = empty($namespace)?'':"\\";
-        return $rootNamespace . '\Models' . '\\' . $namespace . $slash.'Traits' .  '\\' . $this->type;
+        return $rootNamespace . '\Models' .'\\' . $namespace;
     }
 }

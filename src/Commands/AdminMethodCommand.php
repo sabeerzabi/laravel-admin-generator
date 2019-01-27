@@ -2,21 +2,21 @@
 
 namespace Sabeer\AdminGenerator\Commands;
 
-class AppScopeCommand extends AppGeneratorCommand
+class AdminMethodCommand extends AdminGeneratorCommand
 {
     /**
      * The type of class being generated.
      *
      * @var string
      */
-    protected $type = 'Scope';
+    protected $type = 'Method';
 
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'admin:scope
+    protected $signature = 'admin:method
     	{name : The name of the class}
     	{--N|namespace= : The namespace class. Output strategy will follow this namespace}';
 
@@ -25,7 +25,7 @@ class AppScopeCommand extends AppGeneratorCommand
      *
      * @var string
      */
-    protected $description = 'Create a new scope traits for model';
+    protected $description = 'Create a new method traits for model';
 
     /**
      * The methods available.
@@ -44,7 +44,7 @@ class AppScopeCommand extends AppGeneratorCommand
      */
     protected function getStub()
     {
-        return __DIR__.'/stubs/scope.stub';
+        return __DIR__.'/stubs/method.stub';
     }
 
     /**
@@ -55,16 +55,6 @@ class AppScopeCommand extends AppGeneratorCommand
     public function handle()
     {
         parent::handle();
-    }
-
-    /**
-     * Get the desired class name from the input.
-     *
-     * @return string
-     */
-    protected function getNameInput()
-    {
-        return $this->argument('name');
     }
 
     /**

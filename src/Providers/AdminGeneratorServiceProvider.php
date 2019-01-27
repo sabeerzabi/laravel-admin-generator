@@ -3,15 +3,15 @@
 namespace Sabeer\AdminGenerator\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Sabeer\AdminGenerator\Commands\AppModelCommand;
-use Sabeer\AdminGenerator\Commands\AppScopeCommand;
+use Sabeer\AdminGenerator\Commands\AdminModelCommand;
+use Sabeer\AdminGenerator\Commands\AdminScopeCommand;
 use Sabeer\AdminGenerator\Commands\AdminFileCommand;
-use Sabeer\AdminGenerator\Commands\AppMethodCommand;
-use Sabeer\AdminGenerator\Commands\AppContractCommand;
+use Sabeer\AdminGenerator\Commands\AdminMethodCommand;
+use Sabeer\AdminGenerator\Commands\AdminContractCommand;
 use Sabeer\AdminGenerator\Commands\AdminRequestCommand;
-use Sabeer\AdminGenerator\Commands\AppAttributeCommand;
-use Sabeer\AdminGenerator\Commands\AppRepositoryCommand;
-use Sabeer\AdminGenerator\Commands\AppRelationshipCommand;
+use Sabeer\AdminGenerator\Commands\AdminAttributeCommand;
+use Sabeer\AdminGenerator\Commands\AdminRepositoryCommand;
+use Sabeer\AdminGenerator\Commands\AdminRelationshipCommand;
 
 class AdminGeneratorServiceProvider extends ServiceProvider
 {
@@ -35,13 +35,13 @@ class AdminGeneratorServiceProvider extends ServiceProvider
     protected function registerGeneratorCommands()
     {
         $this->commands([
-            AppModelCommand::class,
-            AppScopeCommand::class,
-            AppMethodCommand::class,
-            AppAttributeCommand::class,
-            AppRepositoryCommand::class,
-            AppRelationshipCommand::class,
-            AppContractCommand::class,
+            AdminModelCommand::class,
+            AdminScopeCommand::class,
+            AdminMethodCommand::class,
+            AdminAttributeCommand::class,
+            AdminRepositoryCommand::class,
+            AdminRelationshipCommand::class,
+            AdminContractCommand::class,
             AdminFileCommand::class,
             AdminRequestCommand::class,
         ]);

@@ -2,7 +2,7 @@
 
 namespace Sabeer\AdminGenerator\Commands;
 
-class AppRepositoryCommand extends AppGeneratorCommand
+class AdminRepositoryCommand extends AdminGeneratorCommand
 {
     /**
      * The type of class being generated.
