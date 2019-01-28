@@ -16,5 +16,12 @@
     "authors": [{
         "name" : "Sabeer C A",
         "email": "sabeerzabi@gmail.com"
-    }]
+    }],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Sabeer\\AdminGenerator\\Providers\\AdminGeneratorServiceProvider"
+            ]
+        }
+    }
 }
