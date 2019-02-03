@@ -7,14 +7,16 @@ return [
             'frontend'=>[
                 'model' => '',
                 'repository'=> '',
-                'request'=> ''
+                'request'=> '',
+                'controller'=> ''
             ],
 
             /* Default NameSpace For Back End */
             'backend'=>[
                 'model' => '',
                 'repository'=> '',
-                'request'=> ''
+                'request'=> '',
+                'controller'=> ''
             ]
         ]
     ];

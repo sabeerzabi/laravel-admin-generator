@@ -3,13 +3,15 @@
 namespace Sabeer\AdminGenerator\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Sabeer\AdminGenerator\Commands\AdminFileCommand;
+use Sabeer\AdminGenerator\Commands\AdminViewCommand;
 use Sabeer\AdminGenerator\Commands\AdminModelCommand;
 use Sabeer\AdminGenerator\Commands\AdminScopeCommand;
-use Sabeer\AdminGenerator\Commands\AdminFileCommand;
 use Sabeer\AdminGenerator\Commands\AdminMethodCommand;
-use Sabeer\AdminGenerator\Commands\AdminContractCommand;
 use Sabeer\AdminGenerator\Commands\AdminRequestCommand;
+use Sabeer\AdminGenerator\Commands\AdminContractCommand;
 use Sabeer\AdminGenerator\Commands\AdminAttributeCommand;
+use Sabeer\AdminGenerator\Commands\AdminControllerCommand;
 use Sabeer\AdminGenerator\Commands\AdminRepositoryCommand;
 use Sabeer\AdminGenerator\Commands\AdminRelationshipCommand;
 
@@ -49,6 +51,8 @@ class AdminGeneratorServiceProvider extends ServiceProvider
             AdminContractCommand::class,
             AdminFileCommand::class,
             AdminRequestCommand::class,
+            AdminControllerCommand::class,
+            AdminViewCommand::class,
         ]);
     }
 }

@@ -1,0 +1,21 @@
+<?php
+
+namespace {{namespace}};
+
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Repositories\{{contract_path}};
+
+/*
+* Class {{class}}
+* Contract {{contract}}
+*/
+class {{class}} extends Controller
+{
+    protected ${{variable}};
+
+    function __construct({{contract}} ${{variable}})
+    {
+        $this->{{variable}} = ${{variable}};
+    }
+}
