@@ -1,5 +1,5 @@
 {
-    "name"       : "sabeer/admin-generator",
+    "name"       : "sabeer/laravel-admin-generator",
     "description": "To generate admin CRUD operations",
     "type"       : "library",
     "require"    : {
@@ -17,5 +17,11 @@
         "name" : "Sabeer C A",
         "email": "sabeerzabi@gmail.com"
     }],
-    "minimum-stability": "dev"
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Sabeer\\AdminGenerator\\Providers\\AdminGeneratorServiceProvider"
+            ]
+        }
+    }
 }
